@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sorting</h1>
+    <pre><code>
+    
+class Sorting {
+    static let list = [64, 25, 12, 22, 11]
+}
+
+extension Sorting {
+    /*
+      * Find the smallest element and swap with first.
+      * Repeat the same for remaining list
+      * This problem can be solved with 2 loops or recursion
+      -- Here we solve by recursion---
+     */
+    class func selectionSort(arr: [Int] = Sorting.list, fromIndx: Int = 0) -> [Int] {
+        guard arr.count-1 > fromIndx else { return arr }
+       
+        var mList = arr
+        var smallestI = fromIndx
+        for i in fromIndx..<mList.count {
+            if mList[smallestI] > mList[i] {
+                smallestI = i
+            }
+        }
+        if smallestI != fromIndx {
+            let temp = mList[fromIndx]
+            mList[fromIndx] = mList[smallestI]
+            mList[smallestI] = temp
+        }
+        return selectionSort(arr: mList, fromIndx: fromIndx+1)
+    }
+}
+
+
+extension Sorting {
+    /*
+     * Worst sorting technique
+     * Maximum number of comparison and swaps
+     * Comopair the element with their next and if found irrellivent [greater in case of ascending], do swap
+     * Repeat the above step till last-1 element
+     */
+    class func bubbleSort(arr: [Int] = Sorting.list) -> [Int] {
+        guard arr.count > 1 else { return arr }
+        var aList = arr
+        
+        let n = aList.count
+        for i in 0..<aList.count {
+            for j in 0..<(n-i-1) {
+                if aList[j]>aList[j+1] { // swap
+                    let temp = aList[j]
+                    aList[j] = aList[j+1]
+                    aList[j+1] = temp
+                }
+            }
+        }
+        return aList
+    }
+}
+
+extension Sorting {
+    /*
+     * start the loop with 2nd position, as first assumed to be sorted
+     * start second loop[ from 0 till the position in first loop
+     64,17,13,15,2,9,11
+     */
+    class func insertationSort(arr: [Int] = Sorting.list) -> [Int] {
+        guard arr.count > 1 else { return arr }
+        var aList = arr
+        let n = aList.count
+        
+        for i in 1..<n {
+            for j in 0..<i {
+                if aList[j] > aList[i] { // found higher | need swap
+                    let temp = aList [j]
+                    aList[j] = aList[i]
+                    aList[i] = temp
+                }
+            }
+        }
+        return aList
+    }
+}
+
+extension Sorting {
+    /*
+     * Devide the array
+     * conqure : merge subarrays
+     */
+    class func mergeSort(arr: [Int] = Sorting.list) -> [Int] {
+        guard arr.count > 1 else { return arr }
+        
+        // devide
+        let mid = arr.count/2
+        let leftL = mergeSort(arr: Array(arr[0..<mid])) // further devide left side
+        let rightL = mergeSort(arr: Array(arr[mid...])) // further devide right side
+
+        return merge(list1: leftL, list2: rightL)
+    }
+    
+    class func merge(list1: [Int], list2: [Int]) -> [Int] {
+        if list1.count == 0 { return list2 }
+        if list2.count == 0 { return list1 }
+
+        var result = [Int]()
+        var i1 = 0, i2 = 0
+        while i1 < list1.count && i2 < list2.count {
+            if list1[i1] < list2[i2] { // pick first value from list1
+                result.append(list1[i1])
+                i1 += 1
+            } else {
+                result.append(list2[i2])
+                i2 += 1
+            }
+        }
+        
+        // appen pending..
+        if i1 < list1.count {
+            while i1 < list1.count {
+                result.append(list1[i1])
+                i1 += 1
+            }
+        }
+        
+        // append pending from list2
+        if i2 < list2.count {
+            while i2 < list2.count {
+                result.append(list2[i2])
+                i2 += 1
+            }
+        }
+        return result
+    }
+    
+}
+
+</code></pre>
+</body>
+</html>
