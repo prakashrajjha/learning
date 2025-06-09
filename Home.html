@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Proper Swift Code Display</title>
     <style>
         pre {
             background-color: #f4f4f4;
@@ -15,29 +14,7 @@
 <body>
     <h1>Swift Code Properly Displayed</h1>
     <pre><code>
-let name = "World"
- /*
-     * Worst sorting technique
-     * Maximum number of comparisons and swaps
-     * Comopare the element with their next and if found irrelevant [greater in case of ascending], do swap
-     * Repeat the above step till last-1 element
-     */
-    class func bubbleSort(arr: [Int] = Sorting.list) -> [Int] {
-        guard arr.count > 1 else { return arr }
-        var aList = arr
-        
-        let n = aList.count
-        for i in 0..<aList.count {
-            for j in 0..<(n-i-1) {
-                if aList[j]>aList[j+1] { // swap
-                    let temp = aList[j]
-                    aList[j] = aList[j+1]
-                    aList[j+1] = temp
-                }
-            }
-        }
-        return aList
-    }
+ 
     </code></pre>
 </body>
 </html>
