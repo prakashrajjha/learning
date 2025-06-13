@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        pre {
+            background-color: #fff;
+            color: rgb(43, 83, 143);
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        };
+    </style>
+</head>
+
+  <body style="background-color: #ecf0f1;">
+    <h1>Heap</h1>
+    Operations - 
+       <ol>
+            <li>Copnstruct Heap</li>
+            <li>Heapify</li>
+            <li>Insertion in Heap</li>
+           <li>Deletion in Heap</li>
+           <li>Heap Sort</li>
+       </ol>
+   <pre>
+        <code>
+          
+class Heap {
+    var arr = [Int]()
+    
+    init(arr: [Int]) {
+        self.arr = arr
+        constructHeap()
+    }
+}
+
+extension Heap {
+    func constructHeap() {
+        let n = arr.count
+        var p = n / 2 - 1 // First level parent n-1 's parent == (n-1-1)/2
+        
+        while p >= 0 {
+            heapify(i: p, n: n)
+            p -= 1
+        }
+    }
+    
+    // we may pass n, in case we need to stop the heapify till n only
+    func heapify(i: Int, n: Int) { // i: Index where heapify required
+        let l = 2 * i + 1, r = 2 * i + 2
+        
+        var max = i // initial set to i th only
+        
+        // check left exists & greater
+        if n > l, arr[l] > arr[max] {
+            max = l
+        }
+        
+        // check right exists & greater
+        if n > r, arr[r] > arr[max] {
+            max = r
+        }
+        
+        // if any change required | else this is already in heap mode
+        if i != max {
+            // swap
+            let temp = arr[i]
+            arr[i] = arr[max]
+            arr[max] = temp
+            
+            // next level heapify
+            heapify(i: max, n: n)
+        }
+    }
+    
+    func sortedArr() -> [Int] {
+        
+        var last = arr.count-1
+        
+        while last > 0 {
+            // swap first, last [last element get sorted//largest]
+            let temp = arr[0]
+            arr[0] = arr[last]
+            arr[last] = temp
+            
+            heapify(i: 0, n: last)
+            last -= 1
+        }
+        return arr
+    }
+}
+ </code>
+     </pre>
+  </body>
+
+</html>
