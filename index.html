@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Split Layout with Menu</title>
+  <title>Load External HTML</title>
   <style>
     body {
       margin: 0;
@@ -26,6 +26,7 @@
       display: block;
       margin: 10px 0;
       text-decoration: none;
+      cursor: pointer;
     }
 
     .content {
@@ -39,15 +40,32 @@
   <div class="container">
     <div class="sidebar">
       <h2>Menu</h2>
-      <a href="Sorting">Sorting</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
+      <a onclick="loadContent('Sorting.html')">Sortings</a>
+      <a onclick="loadContent('about.html')">About</a>
+      <a onclick="loadContent('services.html')">Services</a>
+      <a onclick="loadContent('contact.html')">Contact</a>
     </div>
-    <div class="content">
+    <div class="content" id="main-content">
       <h1>Welcome</h1>
       <p>This is the main content area of the page.</p>
     </div>
   </div>
+
+  <script>
+    function loadContent(filename) {
+      fetch(filename)
+        .then(response => {
+          if (!response.ok) throw new Error("Network response was not ok");
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById('main-content').innerHTML = data;
+        })
+        .catch(error => {
+          document.getElementById('main-content').innerHTML = "<p>Error loading content.</p>";
+          console.error("Fetch error:", error);
+        });
+    }
+  </script>
 </body>
 </html>
