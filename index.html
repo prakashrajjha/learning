@@ -4,17 +4,52 @@
   <meta charset="UTF-8">
   <title>Load External HTML</title>
   <style>
-    body {
+     html, body {
+      height: 100%;
       margin: 0;
       font-family: Arial, sans-serif;
+      overflow: hidden;   /* prevent global scroll */
     }
 
-    .container {
+     .container {
       display: flex;
-      height: 100vh;
+      height: 100%;
+      width: 100%;
     }
 
-    .sidebar {
+     .sidebar {
+      width: 250px;
+      background-color: #2c3e50;
+      color: white;
+      overflow-y: auto;      /* ✅ Sidebar scrolls independently */
+      padding: 20px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+    }
+
+    .main-content {
+      flex: 1;
+      overflow-y: auto;      /* ✅ Main content scrolls independently */
+      padding: 40px;
+      background-color: #ecf0f1;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+     .content {
+       overflow-y: auto;
+      flex: 1;
+      padding: 40px;
+      background-color: #ecf0f1;
+    }
+
+    /* .sidebar {
       width: 250px;
       background-color: #2c3e50;
       color: white;
@@ -33,7 +68,7 @@
       flex: 1;
       padding: 40px;
       background-color: #ecf0f1;
-    }
+    } */
   </style>
 </head>
 <body>
@@ -41,13 +76,13 @@
     <div class="sidebar">
       <h2>Menu</h2>
       <a onclick="loadContent('Sorting.html')">Sortings</a>
-      <a onclick="loadContent('about.html')">About</a>
+      <a onclick="loadContent('About.html')">About</a>
       <a onclick="loadContent('services.html')">Services</a>
       <a onclick="loadContent('contact.html')">Contact</a>
     </div>
     <div class="content" id="main-content">
       <h1>Welcome</h1>
-      <p>This is the main content area of the page.</p>
+      <p>Select an item from the menu to load content.</p> 
     </div>
   </div>
 
@@ -62,10 +97,11 @@
           document.getElementById('main-content').innerHTML = data;
         })
         .catch(error => {
-          document.getElementById('main-content').innerHTML = "<p>Error loading content.</p>";
+          document.getElementById('main-content').innerHTML = "<p>Error loading content."+filename+"</p>";
           console.error("Fetch error:", error);
         });
     }
   </script>
 </body>
 </html>
+
