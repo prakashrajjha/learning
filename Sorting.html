@@ -18,14 +18,21 @@
 class Sorting {
     static let list = [64, 25, 12, 22, 11]
 }
+        </code>
+     </pre>
 
-extension Sorting {
-    /*
-      * Find the smallest element and swap with first.
-      * Repeat the same for remaining list
-      * This problem can be solved with 2 loops or recursion
+        <h1>Selection Sort</h1>
+<p>
+    <ul>
+        <li> Find the smallest element and swap it with the first. </li>
+       <li> Repeat the same for the remaining list </li>
+       <li> This problem can be solved with 2 loops or recursion </li>
+    </ul>
       -- Here we solve by recursion---
-     */
+</p>
+    <pre>
+        <code>
+extension Sorting {
     class func selectionSort(arr: [Int] = Sorting.list, fromIndx: Int = 0) -> [Int] {
         guard arr.count-1 > fromIndx else { return arr }
        
@@ -44,8 +51,11 @@ extension Sorting {
         return selectionSort(arr: mList, fromIndx: fromIndx+1)
     }
 }
+ </code>
+     </pre>  
 
-
+     <pre>
+        <code>
 extension Sorting {
     /*
      * Worst sorting technique
@@ -71,6 +81,12 @@ extension Sorting {
     }
 }
 
+ </code>
+     </pre>  
+
+     <pre>
+        <code>
+
 extension Sorting {
     /*
      * start the loop with 2nd position, as first assumed to be sorted
@@ -95,6 +111,11 @@ extension Sorting {
     }
 }
 
+             </code>
+     </pre>  
+
+     <pre>
+        <code>
 extension Sorting {
     /*
      * Devide the array
@@ -147,6 +168,8 @@ extension Sorting {
     
 }
 
-</code></pre>
+ </code>
+     </pre>  
+            
 </body>
 </html>
