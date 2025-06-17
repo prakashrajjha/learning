@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        pre {
+            background-color: #fff;
+            color: rgb(43, 83, 143);
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        };
+    </style>
+</head>
+
+<body style="background-color: #ecf0f1;">
+    <h1>Sorting</h1>
+    <p>
+        Here we cover some of the basic sorting algorithms and code will be written in Swift.
+        <ol>
+            <li>Selection Sort</li>
+            <li>Bubble Sort</li>
+            <li>Insertion Sort</li>
+            <li>Merge Sort</li>
+            <li>Quick Sort</li>
+            <li>Heap Sort</li>
+            </ol>
+            <!-- <li>Counting Sort</li>
+            <li>Radix Sort</li>
+            <li>Bucket Sort</li> -->
+
+            this is example peice of code to show how to write code in this page & with one default list to be sorted.
+    </p>
+    <pre>
+        <code>
+     class Sorting {
+        static let list = [64, 25, 12, 22, 11]
+     }
+        </code>
+     </pre>
+
+    <h3>1. Selection Sort</h3>
+    <p>
+    <ul>
+        <li> Find the smallest element and swap it with the first. </li>
+        <li> Repeat the same for the remaining list </li>
+        <li> This problem can be solved with 2 loops or recursion </li>
+    </ul>
+    -- Here we solve by recursion---
+    </p>
+    <pre>
+        <code>
+extension Sorting {
+    class func selectionSort(arr: [Int] = Sorting.list, fromIndx: Int = 0) -> [Int] {
+        guard arr.count-1 > fromIndx else { return arr }
+       
+        var mList = arr
+        var smallestI = fromIndx
+        for i in fromIndx..<mList.count {
+            if mList[smallestI] > mList[i] {
+                smallestI = i
+            }
+        }
+        if smallestI != fromIndx {
+            let temp = mList[fromIndx]
+            mList[fromIndx] = mList[smallestI]
+            mList[smallestI] = temp
+        }
+        return selectionSort(arr: mList, fromIndx: fromIndx+1)
+    }
+}
+ </code>
+     </pre>
+
+  <h3>2. Bubble Sort</h3>
+    <p>
+    <ul>
+        <li>Stable sorting technique, Not suitable for large data sets</li>
+        <li>Maximum number of comparison and swaps</li>
+        <li>Comopair the element with their next and if found irrellivent [greater in case of ascending], do swap</li>
+        <li>Repeat the above step till last-1 element</li>
+        <li>This problem can be solved with 2 loops or recursion </li>
+        <li>Time Complexity: O(n^2) | Space Complexity: O(1) </li>
+        <li>Best case: O(n), Average case: O(n^2), Worst case: O(n^2) when the array is already sorted </li>
+    </ul>
+    </p>
+    <pre>
+        <code>
+     func bubbleSort(arr: [Int] = Sorting.list) -> [Int] {
+        guard arr.count > 1 else { return arr }
+        var aList = arr
+        
+        let n = aList.count
+        for i in 0..<aList.count {
+            for j in 0..<(n-i-1) {
+                if aList[j]>aList[j+1] { // swap
+                    let temp = aList[j]
+                    aList[j] = aList[j+1]
+                    aList[j+1] = temp
+                }
+            }
+        }
+        return aList
+     }
+ </code>
+     </pre>
+
+     <h3>3. Insertation Sort</h3>
+     <p>
+        <ul>
+        <li>start the loop with 2nd position, as first assumed to be sorted</li>
+        <li>start second loop[ from 0 till the position in first loop example - [64,17,13,15,2,9,11]</li>
+        </ul>
+     </p>
+
+    <pre>
+        <code>
+     func insertationSort(arr: [Int] = Sorting.list) -> [Int] {
+        guard arr.count > 1 else { return arr }
+        var aList = arr
+        let n = aList.count
+        
+        for i in 1..<n {
+            for j in 0..<i {
+                if aList[j] > aList[i] { // found higher | need swap
+                    let temp = aList [j]
+                    aList[j] = aList[i]
+                    aList[i] = temp
+                }
+            }
+        }
+        return aList
+    }
+
+      </code>
+     </pre>
+
+    <h3>4. Merge Sort</h3>
+     <p>
+      <ul>
+        <li>Devide the array</li>
+        <li>conqure : merge subarrays</li>
+      </ul>
+     </p>
+
+    <pre>
+     <code>   
+     func mergeSort(arr: [Int] = Sorting.list) -> [Int] {
+        guard arr.count > 1 else { return arr }
+        
+        // devide
+        let mid = arr.count/2
+        // further devide right & left side
+        let rightL = mergeSort(arr: Array(arr[mid...]))
+        let leftL = mergeSort(arr: Array(arr[0...mid-1])) /* ..< mid */
+        return merge(list1: leftL, list2: rightL)
+    }
+
+    func merge(list1: [Int], list2: [Int]) -> [Int] {
+        if list1.count == 0 { return list2 }
+        if list2.count == 0 { return list1 }
+
+        var result = [Int]()
+        var i1 = 0, i2 = 0
+        while i1 < list1.count && i2 < list2.count {
+            if list1[i1] < list2[i2] { // pick first value from list1
+                result.append(list1[i1])
+                i1 += 1
+            } else {
+                result.append(list2[i2])
+                i2 += 1
+            }
+        }
+        
+        // append pending..
+        if i1 < list1.count {
+            while i1 < list1.count {
+                result.append(list1[i1])
+                i1 += 1
+            }
+        }
+        
+        // append pending from list2
+        if i2 < list2.count {
+            while i2 < list2.count {
+                result.append(list2[i2])
+                i2 += 1
+            }
+        }
+        return result
+    }
+    
+ </code>
+     </pre>
+
+</body>
+
+</html>
