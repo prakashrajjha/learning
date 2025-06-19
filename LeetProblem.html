@@ -25,85 +25,84 @@
 <body>
   <h1>problems</h1>
   <div id="listContainer"></div>
-
-  <div>
-    <h4>1. Search In Roteted Sorted Array</h4>
+  <ol>
+  <li>
+    <h4>Search In Roteted Sorted Array</h4>
      <div class="item-subtitle">[7,8,9,0,1,2,3,4,5] <br> Search by deviding in 2 parts</div>
       <div class="item-subtitle"> https://leetcode.com/problems/search-in-rotated-sorted-array
      </div>
-  </div>>
+  </li>
 
-
-    <div>
+    <li>
     <h4>Group Anagram | [eat, tea, tan, ate, nat, bat] => [[eat, tea, ate], [tan, nat], [bat]]</h4>
      <div class="item-subtitle">Use hash map for sorted string as key<br/>
       <br>https://leetcode.com/problems/group-anagrams/
        </div>
-    </div>
+    </li>
 
-   <div>
+   <li>
     <h4>Validate BST [Binary Search Tree]
       </h4>
       <div class="item-subtitle">func validateBST(node, min, max) { if (node == null) return true; if (node.val <= min || node.val >= max) 
       return false; return validateBST(node.left, min, node.val) && validateBST(node.right, node.val, max); }
       <br/>https://leetcode.com/problems/validate-binary-search-tree/
        </div>
-    </div>
+    </li>
 
-   <div>
+   <li>
     <h4>House Robber | [1,2,3,1] => 4</h4>
      <div class="item-subtitle">Solve by taking 2 sums | s1, s2
       <br/>https://leetcode.com/problems/house-robber/
        </div>
-    </div>
+    </li>
 
-    <div>
+    <li>
     <h4>Koko Eating Bananas | [3,6,7,11] => 8</h4>
      <div class="item-subtitle">let max = Math.max(piles), let min = 1 , mid = (max - min)/2 <br> check at mid
       <br>https://leetcode.com/problems/koko-eating-bananas/
       </div>
-    </div>
+    </li>
 
 
-     <div>
+     <li>
     <h4>Sliding Window Maximum | Minimum</h4>
      <div class="item-subtitle">solve it with two sums s1 & s2
       <br>https://leetcode.com/problems/sliding-window-maximum/
        </div>
-    </div>
+    </li>
 
 
-    <div>
+    <li>
     <h4>Longest pelindrom in string</h4>
      <div class="item-subtitle">solve it with two loop i in 0... & j in i+1
       <br>https://leetcode.com/problems/longest-palindromic-substring/
        </div>
-    </div>
+    </li>
 
 
-     <div>
+     <li>
     <h4>Meeting Rooms</h4>
      <div class="item-subtitle">store end time to Heap & check if start time is greater than end time
       <br>https://leetcode.com/problems/meeting-rooms/
        </div>
-    </div>
+    </li>
 
 
-    <div>
+    <li>
     <h4>Coin change - count the ways</h4>
      <div class="item-subtitle"> start with first for i = 0-n <br>
       if a[i] direct divides the given number add ij your possible count.<br>
       else find diff = target - a[i] - find(targer: diff, list = Array(a[i+1...]))
        </div>
-    </div>
+    </li>
 
 
-    <div>
+    <li>
     <h4>Minimum Operations | you may ony do +1 OR *2</h4>
      <div class="item-subtitle"> Devide the target by 2 if reminder is 1 add 2 in operations or 1 <br>
       Reach to 1 and add one more to reach '0'
        </div>
-    </div>
+    </li>
 
 </body>
 </html>
