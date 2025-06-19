@@ -1,0 +1,36 @@
+
+class Solution {
+    func longestPalindrome(_ s: String) -> String {
+        var result = ""
+        let chars = Array(s)
+        let n = chars.count
+
+
+        for i in 0..<n {
+
+            for j in i..<n {
+                let len = j - i + 1
+                if isPalindrome(Array(chars[i...j])) && result.count < len {
+                    result = String(chars[i...j])
+                }
+            }
+        }
+
+        return result
+    }
+
+    func isPalindrome(_ chars: [Character]) -> Bool {
+        if chars.count <= 1 { return true }
+        var l = 0, r = chars.count - 1
+        while l < r {
+            if chars[l] != chars[r] {
+                return false
+            }
+
+            l += 1
+            r -= 1
+        }
+
+        return true
+    }
+}
