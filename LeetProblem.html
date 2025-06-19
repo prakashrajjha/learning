@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    .item {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+    .item-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .item-subtitle {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>problems</h1>
+  <div id="listContainer"></div>
+
+  <div>
+    <h4>1. Search In Roteted Sorted Array</h4>
+     <div class="item-subtitle">[7,8,9,0,1,2,3,4,5] <br> Search by deviding in 2 parts</div>
+      <div class="item-subtitle"> https://leetcode.com/problems/search-in-rotated-sorted-array
+     </div>
+  </div>>
+
+
+    <div>
+    <h4>Group Anagram | [eat, tea, tan, ate, nat, bat] => [[eat, tea, ate], [tan, nat], [bat]]</h4>
+     <div class="item-subtitle">Use hash map for sorted string as key<br/>
+      <br>https://leetcode.com/problems/group-anagrams/
+       </div>
+    </div>
+
+   <div>
+    <h4>Validate BST [Binary Search Tree]
+      </h4>
+      <div class="item-subtitle">func validateBST(node, min, max) { if (node == null) return true; if (node.val <= min || node.val >= max) 
+      return false; return validateBST(node.left, min, node.val) && validateBST(node.right, node.val, max); }
+      <br/>https://leetcode.com/problems/validate-binary-search-tree/
+       </div>
+    </div>
+
+   <div>
+    <h4>House Robber | [1,2,3,1] => 4</h4>
+     <div class="item-subtitle">Solve by taking 2 sums | s1, s2
+      <br/>https://leetcode.com/problems/house-robber/
+       </div>
+    </div>
+
+    <div>
+    <h4>Koko Eating Bananas | [3,6,7,11] => 8
+     </h4>
+     <div class="item-subtitle">let max = Math.max(piles), let min = 1 , mid = (max - min)/2 <br> check at mid
+      <br>https://leetcode.com/problems/house-robber/
+       </div>
+    </div>
+
+</body>
+</html>
+
