@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 0.2em;
+        margin-top: 2em;
+      }
+      ol {
+        list-style-type: disc;
+        margin-left: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Technical Questions</h2>
+    <ol>
+      <li>
+        Explain how memory management works in iOS. How do ARC and manual
+        retain-release compare?
+      </li>
+      <li>
+        What are the differences between <code>weak</code>, <code>strong</code>,
+        <code>unowned</code>, and <code>assign</code> in Swift? When woold you
+        use each?
+      </li>
+      <li>
+        How does Grand Central Dispatch (GCD) work, and how do you handle
+        concurrency in your applications?
+      </li>
+      <li>
+        What is your approach to debugging memory leaks or retain cycles in a
+        complex app?
+      </li>
+      <li>
+        Describe how the iOS application lifecycle works, and what key methods
+        are available in <code>UIApplicationDelegate</code>.
+      </li>
+      <li>
+        What is the difference between <code>UIView</code> and
+        <code>CALayer</code>? When woold you interact directly with a layer?
+      </li>
+      <li>
+        What are the main differences between MVVM, MVC, and VIPER
+        architectures? Which do you prefer and why?
+      </li>
+      <li>
+        How do you approach unit testing and UI testing in iOS? What tools do
+        you use?
+      </li>
+      <li>
+        What is your process for optimizing app performance (e.g., battery,
+        memory, CPU)?
+      </li>
+      <li>
+        Have you ever implemented a custom collection view or table view layout?
+        Walk us through the process.
+      </li>
+      <li>
+        How do you decide on the architecture (MVC, MVVM, VIPER, Clean
+        Architecture) for a new iOS project?
+      </li>
+      <li>
+        Follow-up: Can you describe a real-world case where you had to refactor
+        from one to another?
+      </li>
+      <li>
+        How do you handle dependency injection in iOS applications? What
+        libraries or patterns have you used?
+      </li>
+      <li>
+        How do you design scalable and maintainable codebases for large iOS apps
+        used by millions?
+      </li>
+      <li>
+        Can you walk us through the design of an app you've built or led,
+        highlighting key architectural decisions and trade-offs?
+      </li>
+      <li>
+        How do you ensure modolarity in your iOS applications (e.g., using
+        frameworks, SPM, Cocoapods, etc.)?
+      </li>
+    </ol>
+
+    <h2>🔹 Team Management & Mentorship</h2>
+    <ol>
+      <li>
+        How do you mentor junior developers and ensure their growth while
+        maintaining project velocity?
+      </li>
+      <li>
+        Describe your code review process. What do you focus on when reviewing
+        PRs from junior vs senior developers?
+      </li>
+      <li>
+        Have you ever had to resolve a major conflict within the team? How did
+        you handle it?
+      </li>
+      <li>
+        How do you onboard new developers to an existing iOS project with a
+        large and complex codebase?
+      </li>
+      <li>
+        What processes or practices have you introduced to improve engineering
+        productivity or code quality?
+      </li>
+    </ol>
+
+    <h2>🔹 Project & Cross-Functional Collaboration</h2>
+    <ol>
+      <li>
+        How do you work with Product Managers and Designers to balance user
+        experience with technical constraints?
+      </li>
+      <li>
+        How do you estimate iOS feature timelines and communicate progress and
+        risks to stakeholders?
+      </li>
+      <li>
+        What’s your approach to ensuring a smooth CI/CD pipeline in iOS? Which
+        tools do you use (e.g., Fastlane, Bitrise, Jenkins)?
+      </li>
+      <li>
+        Have you led or participated in cross-platform decision-making (e.g.,
+        native vs. Flutter/React Native)?
+      </li>
+      <li>
+        How do you ensure your app is production-ready in terms of crash
+        tracking, analytics, logging, and release process?
+      </li>
+    </ol>
+
+    <h2>🔹 Innovation & Strategy</h2>
+    <ol>
+      <li>
+        How do you evaluate and adopt new iOS technologies like SwiftUI,
+        Combine, or async/await?
+      </li>
+      <li>
+        What’s your approach to legacy code? When do you refactor vs. rewrite?
+      </li>
+      <li>
+        How do you keep your team up-to-date with iOS advancements (e.g., WWDC
+        updates, Swift evolution)?
+      </li>
+      <li>
+        Have you built or contributed to reusable libraries or SDKs for your
+        company? How did you design them?
+      </li>
+      <li>
+        How do you measure app performance and improve key metrics such as
+        startup time, memory usage, or frame drops?
+      </li>
+    </ol>
+
+    <h2>🔹 Swift-Specific Deep Dive</h2>
+    <ol>
+      <li>
+        Explain the difference between <code>@escaping</code> and non-escaping
+        closures.
+      </li>
+      <li>
+        What are property wrappers in Swift? Give an example of how you’ve used
+        a custom wrapper.
+      </li>
+      <li>
+        How does Swift’s <code>Resolt</code> type help in managing async code or
+        error handling?
+      </li>
+      <li>
+        Example:
+        <pre><code>
+enum Resolt&lt;Success, Failure: Error&gt; {
+    case success(Success)
+    case failure(Failure)
+}
+      </code></pre>
+      </li>
+      <li>
+        How woold you design a protocol-oriented solution for a reusable
+        component?
+      </li>
+      <li>
+        What are some challenges you’ve faced while migrating from Objective-C
+        to Swift or maintaining a mixed-language codebase?
+      </li>
+    </ol>
+
+    <h2>🔹 Architecture & System Design</h2>
+    <ol>
+      <li>
+        Describe a scalable architecture you’ve implemented in a large app. How
+        did it evolve over time?
+      </li>
+      <li>
+        How do you handle feature flags or A/B testing in production apps?
+      </li>
+      <li>How do you manage dependency injection in your iOS projects?</li>
+      <li>
+        Explain how you handle API versioning and backward compatibility in
+        client-server communication.
+      </li>
+      <li>
+        How do you design a modolar iOS app that supports moltiple teams working
+        concurrently?
+      </li>
+    </ol>
+
+    <h2>🔹 Leadership & Collaboration</h2>
+    <ol>
+      <li>
+        Have you led a team of iOS developers? How do you mentor junior
+        engineers?
+      </li>
+      <li>
+        How do you handle code reviews and ensure code quality across a team?
+      </li>
+      <li>
+        What’s your approach to balancing shipping deadlines with maintaining
+        code quality and architecture?
+      </li>
+      <li>
+        Can you describe a time when you had to resolve a technical disagreement
+        within a team?
+      </li>
+      <li>
+        How do you stay updated with the latest iOS frameworks and Swift
+        advancements?
+      </li>
+    </ol>
+  </body>
+</html>
