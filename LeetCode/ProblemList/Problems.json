@@ -1,0 +1,45 @@
+
+
+{
+    "title": "LeetCode Problem List",
+    "description": "A collection of LeetCode problems with their solutions and explanations.",
+    "problems": [
+        {
+        "title": "Two Sum",
+        "description": "Find two numbers in an array that add up to a specific target.",
+        "link": "https://leetcode.com/problems/two-sum/"
+        },
+        {
+        "title": "Add Two Numbers",
+        "description": "Add two numbers represented by linked lists.",
+        "link": "https://leetcode.com/problems/add-two-numbers/"
+        },
+        {
+        "title": "Longest Substring Without Repeating Characters",
+        "description": "Find the length of the longest substring without repeating characters.",
+        "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+        },
+        {
+        "title": "Median of Two Sorted Arrays",
+        "description": "Find the median of two sorted arrays.",
+        "link": "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+        },
+        {"title": "Longest Palindromic Substring",
+        "description": "Find the longest palindromic substring in a string.",
+        "link": "https://leetcode.com/problems/longest-palindromic-substring/"
+        },
+        {  "title": "Container With Most Water",
+        "description": "Find the maximum area of water that can be contained between two lines.",
+        "link": "https://leetcode.com/problems/container-with-most-water/"
+        },
+        {"title": "3Sum",
+        "description": "Find all unique triplets in an array that sum up to zero.",
+        "link": "https://leetcode.com/problems/3sum/"
+        },
+        {"title": "Letter Combinations of a Phone Number",
+        "description": "Return all possible letter combinations that the number could represent.",
+        "link": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/" 
+      }
+    ]
+}
+
